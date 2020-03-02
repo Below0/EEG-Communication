@@ -30,20 +30,23 @@ if __name__ == '__main__': # main function
     dataFrame = pd.DataFrame(columns=['delta','theta','lowAlpha','highAlpha','lowBeta','highBeta','lowGamma','midGamma'])
 
     if(mindwaveDataPointReader.isConnected()):
-        while(mindwaveDataPointReader.isConnected()):
-            dataPoint = mindwaveDataPointReader.readNextDataPoint()
-            if(not dataPoint.__class__ is RawDataPoint):
-                if(dataPoint.__class__ is EEGPowersDataPoint):
-                    pandasData = str(dataPoint)
-                    pandasList = stringParsing()
-                    dataFrame.loc[dataPos] = pandasList
-                    dataPos += 1
-                    print(dataFrame)
-                else:
-                    print(dataPoint)
+        try:
+            while(mindwaveDataPointReader.isConnected()):
+                dataPoint = mindwaveDataPointReader.readNextDataPoint()
+                if(not dataPoint.__class__ is RawDataPoint):
+                    if(dataPoint.__class__ is EEGPowersDataPoint):
+                        pandasData = str(dataPoint)
+                        pandasList = stringParsing()
+                        dataFrame.loc[dataPos] = pandasList
+                        dataPos += 1
+                        print(dataFrame)
+                    else:
+                        print(dataPoint)
 
-            else:
-                print(dataPoint)
+        except KeyboardInterrupt as Int:
+            print(Int)
+            dataFrame.to_csv('Result.csv',mode='a',header=False)
+            exit(-1)
     else:
         print((textwrap.dedent("""\
             Exiting because the program could not connect

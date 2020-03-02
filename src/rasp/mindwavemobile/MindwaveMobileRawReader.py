@@ -13,11 +13,11 @@ class MindwaveMobileRawReader:
         self._buffer = [] # list, but it'll be used like an array
         self._bufferPosition = 0
         self._isConnected = False
-        self._mindwaveMobileAddress = 'C4:64:E3:E8:E6:7B' # Mindwave Mobile 2's MAC address
         self._nearby = None
         self._sock = None
         self.target_name = 'MindWave Mobile'
         self.target_addr = 'C4:64:E3:E8:E6:7B' # Mindwave Mobile 2's MAC address
+        self._mindwaveMobileAddress = 'C4:64:E3:E8:E6:7B' # Mindwave Mobile 2's MAC address
         self.target_tuple = (self.target_addr,1) # RFCOMM port == 1
 
         os.system('sudo systemctl daemon-reload')
@@ -108,7 +108,7 @@ class MindwaveMobileRawReader:
         while(missingBytes > 0):
             #print('\n(.REQ',missingBytes,')')
             try:
-                receivedBytes += self.mindwaveMobileSocket.recv(missingBytes)
+                receivedBytes += self._sock.recv(missingBytes)
             except:
                 print ("\n--- recev timed out! ---",datetime.now())
                 #receivedBytes += ['\n']*missingBytes
@@ -150,8 +150,24 @@ class MindwaveMobileRawReader:
             self._readMoreBytesIntoBuffer(amountOfBytes)
     
     def _getNextByte(self):
-        nextByte = self._buffer[self._bufferPosition] # use a list like an array
-        self._bufferPosition += 1 # pos++
+        try:
+            nextByte = self._buffer[self._bufferPosition] # use a list like an array
+            self._bufferPosition += 1 # pos++
+            '''
+            if(self._bufferPosition < len(self._buffer)):
+                self._bufferPosition += 1 # pos++
+            '''
+        except:
+            print('len : ',len(self._buffer))
+            temp = self._buffer[len(self._buffer)-1]
+            print('temp : ',temp)
+            #self._buffer.clear()
+            self.clearAlreadyReadBuffer()
+            self._buffer.append(temp)
+            self._bufferPosition = 1
+            nextByte = self._buffer[self._bufferPosition] # use a list like an array
+            self._bufferPosition += 1 # pos++
+
         return nextByte
 
     def getBytes(self, amountOfBytes):
