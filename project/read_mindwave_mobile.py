@@ -25,28 +25,22 @@ def stringParsing():
 
 if __name__ == '__main__': # main function
     mindwaveDataPointReader = MindwaveDataPointReader() # make a data reader object
-    mindwaveDataPointReader.start() # [1] -> MindwaveDataPointReader.py
+    mindwaveDataPointReader.start() # connect with MindWave Mobile 2
     dataPos = 0
     dataFrame = pd.DataFrame(columns=['delta','theta','lowAlpha','highAlpha','lowBeta','highBeta','lowGamma','midGamma'])
 
     if(mindwaveDataPointReader.isConnected()):
-        try:
-            while(mindwaveDataPointReader.isConnected()): # [4] -> MindwaveDataPointReader.py
-                dataPoint = mindwaveDataPointReader.readNextDataPoint() # [5] same with above
-                if(not dataPoint.__class__ is RawDataPoint):
-                    if(dataPoint.__class__ is EEGPowersDataPoint):
-                        pandasData = str(dataPoint)
-                        pandasList = stringParsing()
-                        dataFrame.loc[dataPos] = pandasList
-                        dataPos += 1
-                        print(dataFrame)
-                    else:
-                        print(dataPoint)
-
-        except KeyboardInterrupt as Int:
-            print(Int)
-            dataFrame.to_csv('Result.csv',mode='a',header=False)
-            exit(-1)
+        while(True):
+            dataPoint = mindwaveDataPointReader.readNextDataPoint()
+            if(not dataPoint.__class__ is RawDataPoint):
+                if(dataPoint.__class__ is EEGPowersDataPoint):
+                    pandasData = str(dataPoint)
+                    pandasList = stringParsing()
+                    dataFrame.loc[dataPos] = pandasList
+                    dataPos += 1
+                    print(dataFrame)
+                else:
+                    print(dataPoint)
     else:
         print((textwrap.dedent("""\
             Exiting because the program could not connect
