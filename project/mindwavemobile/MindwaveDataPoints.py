@@ -28,7 +28,7 @@ class PoorSignalLevelDataPoint(DataPoint):
 class AttentionDataPoint(DataPoint):
     def __init__(self, _dataValueBytes):
         DataPoint.__init__(self, _dataValueBytes)
-        self.attentionValue = self._dataValueBytes[0] 
+        self.attentionValue = self._dataValueBytes[0]
 
     def __str__(self):
         return "Attention Level: " + str(self.attentionValue)
@@ -105,3 +105,9 @@ class EEGPowersDataPoint(DataPoint):
                 lowGamma: {self.lowGamma}
                 midGamma: {self.midGamma}
                 """.format(self = self)
+
+    def is_valid(self):
+        sum = self.delta + self.theta + self.lowAlpha + self.highAlpha + self.lowBeta
+        sum += self.highBeta + self.lowGamma + self.midGamma
+        return sum > 800
+

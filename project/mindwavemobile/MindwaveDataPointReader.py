@@ -12,6 +12,9 @@ class MindwaveDataPointReader:
     def start(self):
         self._mindwaveMobileRawReader.connectToMindWaveMobile() # connect to Mindwave Mobile 2
 
+    def close(self):
+        self._mindwaveMobileRawReader.close()
+
     def isConnected(self):
         return self._mindwaveMobileRawReader.isConnected() # is Connected -> True/False
 

@@ -82,5 +82,5 @@ class MindwavePacketPayloadParser:
         elif (dataRowCode == 0xba or dataRowCode == 0xbc):
             return UnknownDataPoint(dataRowValueBytes)
         else:
-            assert False 
+            assert False
         
