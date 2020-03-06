@@ -71,7 +71,7 @@ class EEGPowersDataPoint(DataPoint):
     def __init__(self, dataValueBytes):
         DataPoint.__init__(self, dataValueBytes)
         self._rememberEEGValues();
-        
+
     def _rememberEEGValues(self):
         self.delta = self._convertToBigEndianInteger(self._dataValueBytes[0:3]);
         self.theta = self._convertToBigEndianInteger(self._dataValueBytes[3:6]);
