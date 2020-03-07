@@ -1,4 +1,4 @@
-# EGG-Communication
+# EEG-Communication
 > MindWave Mobile2, Raspberry pi를 이용한 뇌파 분석 프로젝트
 
 ## Naming Rule
