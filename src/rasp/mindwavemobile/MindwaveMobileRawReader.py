@@ -20,12 +20,6 @@ class MindwaveMobileRawReader:
         self._mindwaveMobileAddress = 'C4:64:E3:E8:E6:7B' # Mindwave Mobile 2's MAC address
         self.target_tuple = (self.target_addr,1) # RFCOMM port == 1
 
-        os.system('sudo systemctl daemon-reload')
-        os.system('sudo systemctl restart bluetooth')
-        os.system('sudo chmod 777 /var/run/sdp')
-        os.system('sudo hciconfig hci0 up')
-        os.system('sudo hciconfig hci0 piscan') # set a pi's module discoverable
-        
     # Headset address is 'C4:64:E3:E8:E6:7B'
     def connectToMindWaveMobile(self):
 
@@ -61,26 +55,23 @@ class MindwaveMobileRawReader:
         
         print('Connecting with MindWave Mobile 2 success!')
 
-    def _connectToAddress(self, mindwaveMobileAddress):
+    def _connectToAddress(self, mindwaveMobileAddress): # [3] connecting with MW Mobile2
         err_count = 0
-        #self.mindwaveMobileSocket = bluetooth.BluetoothSocket(bluetooth.RFCOMM)
         while(not self._isConnected):
             try:
                 self._sock = BluetoothSocket(RFCOMM)
-                self._sock.connect(
-                    (mindwaveMobileAddress, 1))
+                self._sock.connect((mindwaveMobileAddress, 1))
                 self._isConnected = True
-                self._sock.settimeout(1)
+                self._sock.settimeout(2) # setting timeout length : 5s
             except btcommon.BluetoothError as error:
                 err_count += 1
                 if err_count == 10:
                     print ("Attempt",err_count,"of 10: Could not connect:", error, ";")
                     return False
                 else:
-                    print ("Attempt",err_count,"of 10: Could not connect:", error, "; Retrying in 5s...")
-                    time.sleep(5)
+                    print ("Attempt",err_count,"of 10: Could not connect:", error, "; Retrying in 2s...")
+                    time.sleep(2)
         return True
-
 
     def isConnected(self):
         return self._isConnected
@@ -130,12 +121,6 @@ class MindwaveMobileRawReader:
             #print('--(GET',len(receivedBytes),',miss',missingBytes,')--',)
         #print('e-read',end='')
         return receivedBytes;
-        '''
-        while(missingBytes > 0):
-            receivedBytes += self._sock.recv(missingBytes)
-            missingBytes = amountOfBytes - len(receivedBytes)
-        return receivedBytes
-        '''
 
     def peekByte(self):
         self._ensureMoreBytesCanBeRead()
@@ -153,20 +138,9 @@ class MindwaveMobileRawReader:
         try:
             nextByte = self._buffer[self._bufferPosition] # use a list like an array
             self._bufferPosition += 1 # pos++
-            '''
-            if(self._bufferPosition < len(self._buffer)):
-                self._bufferPosition += 1 # pos++
-            '''
         except:
-            print('len : ',len(self._buffer))
-            temp = self._buffer[len(self._buffer)-1]
-            print('temp : ',temp)
-            #self._buffer.clear()
             self.clearAlreadyReadBuffer()
-            self._buffer.append(temp)
-            self._bufferPosition = 1
-            nextByte = self._buffer[self._bufferPosition] # use a list like an array
-            self._bufferPosition += 1 # pos++
+            self._bufferPosition = 0
 
         return nextByte
 
@@ -175,7 +149,7 @@ class MindwaveMobileRawReader:
         return self._getNextBytes(amountOfBytes)
     
     def _getNextBytes(self, amountOfBytes):
-        nextBytes = list(self._buffer[self._bufferPosition: self._bufferPosition + amountOfBytes]) #py3
+        nextBytes = list(self._buffer[self._bufferPosition: self._bufferPosition + amountOfBytes]) 
         self._bufferPosition += amountOfBytes
         return nextBytes
     

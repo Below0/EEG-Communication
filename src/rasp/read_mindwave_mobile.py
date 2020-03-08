@@ -25,14 +25,14 @@ def stringParsing():
 
 if __name__ == '__main__': # main function
     mindwaveDataPointReader = MindwaveDataPointReader() # make a data reader object
-    mindwaveDataPointReader.start() # connect with MindWave Mobile 2
+    mindwaveDataPointReader.start() # [1] -> MindwaveDataPointReader.py
     dataPos = 0
     dataFrame = pd.DataFrame(columns=['delta','theta','lowAlpha','highAlpha','lowBeta','highBeta','lowGamma','midGamma'])
 
     if(mindwaveDataPointReader.isConnected()):
         try:
-            while(mindwaveDataPointReader.isConnected()):
-                dataPoint = mindwaveDataPointReader.readNextDataPoint()
+            while(mindwaveDataPointReader.isConnected()): # [4] -> MindwaveDataPointReader.py
+                dataPoint = mindwaveDataPointReader.readNextDataPoint() # [5] same with above
                 if(not dataPoint.__class__ is RawDataPoint):
                     if(dataPoint.__class__ is EEGPowersDataPoint):
                         pandasData = str(dataPoint)
