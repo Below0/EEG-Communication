@@ -1,6 +1,7 @@
 import os
 import time
 import string
+import requests
 import textwrap
 import bluetooth
 import numpy as np
@@ -9,6 +10,7 @@ from mindwavemobile.MindwaveDataPoints import *
 from mindwavemobile.MindwaveDataPointReader import MindwaveDataPointReader
 
 pandasData = ''
+URL = 'http://44.233.139.129:8000/eeg/'
 
 def stringParsing():
     if pandasData is None:
@@ -39,13 +41,14 @@ if __name__ == '__main__': # main function
     #time.sleep(3)
 
     if(mindwaveDataPointReader.isConnected()):
+        data = {'MAC':'C4:64:E3:E8:E6:7B'}
+        #response = requests.post(URL,data=data)
         try:
             while(True):
                 dataPoint = mindwaveDataPointReader.readNextDataPoint()
                 if(not dataPoint.__class__ is RawDataPoint):
                     if(dataPoint.__class__ is PoorSignalLevelDataPoint):
                         poor_num = dataPoint.amountOfNoise
-                        #print(dataPoint.amountOfNoise)
 
                     if(poor_num < 200 and dataPoint.__class__ is EEGPowersDataPoint):
                         if(not dataPoint.is_valid()):
@@ -54,11 +57,8 @@ if __name__ == '__main__': # main function
                         pandasData = str(dataPoint)
                         pandasList = stringParsing()
                         pandasList.extend(tempList)
-                        #pandasList = pandasList + temp_list
-                        #temp_list.clear()
                         dataFrame.loc[dataPos] = pandasList
                         dataPos += 1
-                        #print(pandasList)
                         print(dataFrame)
 
                     if(poor_num < 200 and dataPoint.__class__ is MeditationDataPoint):
@@ -68,9 +68,6 @@ if __name__ == '__main__': # main function
                     if(poor_num < 200 and dataPoint.__class__ is AttentionDataPoint):
                         tempList.append(str(dataPoint.attentionValue))
 
-                    if(poor_num < 200 and dataPoint.__class__ is BlinkDataPoint):
-                        print('BlinkDataPoint')
-                        print(dataPoint)
                 else:
                     now = time.localtime()
                     time_str = str(now.tm_year) + '.' + str(now.tm_mon) + '.' + str(now.tm_mday) + '.' + str(now.tm_hour) + '.' + str(now.tm_min) + '.' + str(now.tm_sec)
