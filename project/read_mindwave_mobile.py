@@ -68,7 +68,7 @@ if __name__ == '__main__': # main function
                     if(poor_num < 200 and dataPoint.__class__ is AttentionDataPoint):
                         tempList.append(str(dataPoint.attentionValue))
 
-                #else:
+                else:
                     now = time.localtime()
                     time_str = str(now.tm_year) + '.' + str(now.tm_mon) + '.' + str(now.tm_mday) + '.' + str(now.tm_hour) + '.' + str(now.tm_min) + '.' + str(now.tm_sec)
                     rawList = []
