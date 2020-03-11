@@ -107,12 +107,9 @@ del dat['Unnamed: 0']
 del dat['Time']
 
 X = dat[['delta','theta','lowAlpha','highAlpha','lowBeta','highBeta','lowGamma','midGamma','Meditation','Attention']].to_numpy()
+X = X[0:1]
 
-test_scaler = RobustScaler()
-test_scaler.fit(X)
-X = test_scaler.transform(X)
-
-xhat = X[0:1]
+X = scaler.transform(X)
 
 yhat = model.predict(xhat)
 
