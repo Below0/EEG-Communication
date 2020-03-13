@@ -16,8 +16,8 @@ from numpy import *
 
 np.random.seed(30)
 
-test1=pd.read_csv('normal4.csv', header=None)
-test2=pd.read_csv('emer4.csv', header=None)
+test1=pd.read_csv('test_normal.csv', header=None)
+test2=pd.read_csv('test_scared.csv', header=None)
 
 #test1=pd.read_csv('normal4.csv')
 #test2=pd.read_csv('emer4.csv')
@@ -35,8 +35,8 @@ test2.drop(test1.columns[[0]], axis='columns')
 # In[21]:
 
 
-test1["label"] = "unsafe"
-test2["label"] = "safe"
+test1["label"] = "safe"
+test2["label"] = "unsafe"
 
 X=pd.concat([test1, test2])
 
@@ -45,7 +45,7 @@ X=pd.concat([test1, test2])
 #"""
 #Y를 범주형 데이터로 전환
 bclass = {'safe':[1, 0], 'unsafe':[0, 1]}
-y = np.empty((1123, 2))
+y = np.empty((, 2))
 for i, v in enumerate(X['label']):
     y[i] = bclass[v]
 
@@ -135,7 +135,7 @@ for r in range(repeats):
 	score = score * 100.0
 	print('>#%d: %.3f' % (r+1, score))
 	scores.append(score)
-    
+
 # summarize results
 print(scores)
 m, s = mean(scores), std(scores)

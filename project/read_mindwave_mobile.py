@@ -9,16 +9,17 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn import svm
 from SupportVectorMachine import SupportVectorMachine as svmFunctions
-from MLP import MultiLayerPerceptron as mplFunctions # MPL
+from MLP_v1 import MultiLayerPerceptron as mplFunctions # MPL
 from sklearn.model_selection import train_test_split, GridSearchCV
 from mindwavemobile.MindwaveDataPoints import *
 from mindwavemobile.MindwaveDataPointReader import MindwaveDataPointReader
 
 pandasData = ''
 user = 'Unknown'
-emergencyFile = 'Result_per_second.csv'
-normalFile = 'Result_game.csv'
+normalFile = 'normal.csv'
+emergencyFile = 'scared.csv'
 URL = 'http://44.233.139.129:8000/eeg/'
+isTrain = False
 
 def stringParsing():
     if pandasData is None:
@@ -47,9 +48,18 @@ if __name__ == '__main__': # main function
     rawFrame = pd.DataFrame(columns=['Time','RawValue'])
     user = input('write an user name : ')
     user = str(user)
+
+    isTrain = input('The data is trained? : (Y/N)')
+    isTrain = str(isTrain)
+
+    if(isTrain is 'Y' or isTrain is 'y'):
+        isTrain = True
+    else:
+        isTrain = False
+
     mplTest = mplFunctions() # make a MPL object
     mplTest._readDataFromFile(emergencyFile,normalFile)
-    mplTest._trainDataFromValue()
+    mplTest._trainDataFromValue(isTrain)
     print('MPL test finished...')
     mindwaveDataPointReader = MindwaveDataPointReader() # make a data reader object
     mindwaveDataPointReader.start() # connect with MindWave Mobile 2
@@ -74,10 +84,11 @@ if __name__ == '__main__': # main function
                         tempFrame = pd.DataFrame(columns=['delta','theta','lowAlpha','highAlpha','lowBeta','highBeta','lowGamma','midGamma','Meditation','Attention'])
                         tempFrame.set_index('delta')
                         tempFrame.loc[0] = pandasList
-                        printout = mplTest._extractResult(tempFrame)
+                        mplTest._extractResult(tempFrame,isTrain)
+                        print(tempFrame)
                         dataFrame.loc[dataPos] = pandasList
                         dataPos += 1
-                        print(dataFrame)
+                        #print(dataFrame)
 
                     if(poor_num < 200 and dataPoint.__class__ is MeditationDataPoint):
                         tempList.clear()
@@ -93,36 +104,6 @@ if __name__ == '__main__': # main function
             time_str = str(now.tm_year)+'_'+str(now.tm_mon)+'_'+str(now.tm_mday)+'_'+str(now.tm_hour)+'_'+str(now.tm_min)
             realTimeFile = user + '_' + time_str + '.csv'
             dataFrame.to_csv(realTimeFile,mode='w',header=True)
-
-            '''
-            # Make an class object and Read data
-            svmTest = svmFunctions()
-            x,labels = svmTest._readDataFromFile(normalFile,currentStatus)
-
-            # Split data to train and test on 80-20 ratio
-            X_train,X_test,y_train,y_test = train_test_split(x,labels,test_size = 0.2,random_state=0)
-            # Regularization
-            X_train,X_test = svmTest._trainRegularization(X_train,X_test)
-            y_train,y_test = svmTest._trainRegularization(y_train,y_test)
-
-            print("Displaying data. Close window to continue.")
-            # Plot data
-            svmTest._plotData(X_train,y_train,X_test,y_test)
-
-            # make a classifier and fit on training data
-            clf = svm.SVC(kernel='linear',C=10000,random_state=0)
-
-            # Train classifier
-            clf.fit(X_train, y_train)
-            print("Displaying decision function. Close window to continue.")
-            # Plot decision function on training and test data
-            #svmTest._plotDecisionFunction(X_train, y_train, X_test, y_test, clf)
-
-            # Make predictions on unseen test data
-            clf_predictions = clf.predict(X_test)
-            print("Accuracy: {}%".format(clf.score(X_test, y_test)*100))
-            #rawFrame.to_csv('RawValue.csv',mode='w',header=True)
-            '''
     else:
         print((textwrap.dedent("""\
             Exiting because the program could not connect

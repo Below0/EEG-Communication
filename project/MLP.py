@@ -1,99 +1,180 @@
-import random
-import pandas as pd, numpy as np
-from keras.utils import np_utils
 from keras.models import Sequential
-from keras.callbacks import EarlyStopping
-from sklearn.preprocessing import RobustScaler
+from keras.utils import np_utils
 from keras.layers.core import Dense, Dropout, Activation
+from keras.callbacks import EarlyStopping
+import pandas as pd, numpy as np
+from sklearn.preprocessing import RobustScaler
+from sklearn.model_selection import train_test_split, GridSearchCV
+import random
 
-class MultiLayerPerceptron:
+test1=pd.read_csv('newemer.csv', header=None)
+test2=pd.read_csv('newnor.csv', header=None)
+test1["label"] = "unsafe"
+test2["label"] = "safe"
 
-    def __init__(self):
-        self._test1 = None
-        self._test2 = None
-        self._csv = None
-        self._bclass = None
-        self._scaler = None
-        self._X = None # input file
-        self._y = None # output file
-        self._x_train = None
-        self._y_train = None
-        self._x_test = None
-        self._y_test = None
-        self._test_size = None
-        self._hist = None
-        self._model = None
-        self._dat = None
-        self._xhat = None
-        self._yhat = None
-        self._loss_and_metrics = None
 
-    def _readDataFromFile(self,emergencyFile,normalFile):
-        self._test1=pd.read_csv(emergencyFile)
-        self._test2=pd.read_csv(normalFile)
+# In[2]:
 
-        self._test1["label"] = "unsafe"
-        self._test2["label"] = "safe"
 
-        self._csv=pd.concat([self._test1,self._test2])
-        self._test_size = int(70*(self._csv.shape[0]/100))
-        self._bclass = {'safe':[1, 0],'unsafe':[0, 1]}
-        self._y = np.empty((self._csv.shape[0],2))
+csv=pd.concat([test1, test2])
+bclass = {'safe':[1, 0], 'unsafe':[0, 1]}
+y = np.empty((len(csv), 2))
+for i, v in enumerate(csv['label']):
+    y[i] = bclass[v]
 
-        for i, v in enumerate(self._csv['label']):
-            self._y[i] = self._bclass[v]
+del csv['label']
+#X = csv[['delta','theta','lowAlpha','highAlpha','lowBeta','highBeta','lowGamma','midGamma','Meditation','Attention']].to_numpy()
+X=csv.to_numpy()
 
-        del self._csv['label']
+scaler = RobustScaler()
+scaler.fit(X)
+X = scaler.transform(X)
+#print(X_rob)
+# np.mean(X_rob), np.std(X_rob)
 
-    def _trainDataFromValue(self):
-        #self._X = self._csv.to_numpy()
-        self._X = self._csv[['delta','theta','lowAlpha','highAlpha','lowBeta','highBeta','lowGamma','midGamma','Meditation','Attention']].to_numpy()
+tmp = [[x,y_tmp] for x, y_tmp in zip(X, y)]
+random.shuffle(tmp)
+X= [n[0] for n in tmp]
+y = [n[1] for n in tmp]
 
-        self._scaler = RobustScaler()
-        self._scaler.fit(self._X)
-        self._X = self._scaler.transform(self._X)
+X = np.asarray(X, dtype=np.float32)
+y = np.asarray(y, dtype=np.float32)
+print(len(X), len(y))
 
-        tmp = [[x,y_tmp] for x, y_tmp in zip(self._X,self._y)]
-        random.shuffle(tmp)
-        self._X = [n[0] for n in tmp]
-        self._y = [n[1] for n in tmp]
 
-        self._X = np.asarray(self._X,dtype=np.float32)
-        self._y = np.asarray(self._y,dtype=np.float32)
+# In[3]:
 
-        self._x_train,self._y_train = self._X[1:self._test_size],self._y[1:self._test_size]
-        self._x_test,self._y_test = self._X[self._test_size:],self._y[self._test_size:]
 
-        print(self._x_train.shape,self._y_train.shape,self._x_test.shape,self._y_test.shape)
+x_train, y_train = X[1:4800], y[1:4800]
+x_test, y_test = X[4800:], y[4800:]
+# X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.3, random_state=0)
+print(x_train.shape, y_train.shape, x_test.shape, y_test.shape)
 
-        self._model = Sequential()
-        self._model.add(Dense(512,input_shape=(10,)))
-        self._model.add(Activation('relu'))
-        self._model.add(Dropout(0.1))
-        self._model.add(Dense(512))
-        self._model.add(Activation('relu'))
-        self._model.add(Dropout(0.1))
-        self._model.add(Dense(2))
-        self._model.add(Activation('softmax'))
-        self._model.compile(loss='binary_crossentropy',optimizer='rmsprop',metrics=['accuracy'])
 
-        #모델 학습시키기
-        self._hist = self._model.fit(self._x_train,self._y_train,epochs=50,batch_size=32,validation_data=(self._x_test,self._y_test))
+# In[4]:
 
-    def _extractResult(self,arguList):
-        #arguList.drop(['Unnamed: 0'],axis=1,inplace=True)
-        self._X = arguList[['delta','theta','lowAlpha','highAlpha','lowBeta','highBeta','lowGamma','midGamma','Meditation','Attention']].to_numpy()
-        #self._scaler = RobustScaler()
-        #self._scaler.fit(self._X)
-        self._X = self._scaler.transform(self._X)
-        self._xhat = arguList[0:1]
-        self._yhat = self._model.predict_classes(self._xhat,verbose=0)
-        print(self._yhat)
 
-        '''
-        if self._yhat[0][0] == 1 :
-            print("emergency call")
-        else:
-            print("normal")
-            #print(self._yhat)
-        '''
+model = Sequential()
+"""
+model.add(Convolution2D(32, 3, 3,
+                        border_mode='same',
+                        input_shape=X_train.shape[1:]))
+                        """
+model.add(Dense(512, input_shape=(10,)))
+model.add(Activation('relu'))
+model.add(Dropout(0.2))
+
+model.add(Dense(512, activation='relu'))
+# model.add(Dense(256, activation='relu'))
+model.add(Dropout(0.2))
+
+model.add(Dense(2, activation='sigmoid'))
+
+model.compile(
+    loss='binary_crossentropy',
+    optimizer='rmsprop',
+    metrics=['accuracy']
+)
+
+
+# In[6]:
+
+
+#모델 학습시키기
+hist = model.fit(x_train, y_train, epochs=300, 
+                 batch_size=128, validation_data=(x_test, y_test),verbose=2)
+
+
+# In[7]:
+
+'''
+import matplotlib.pyplot as plt
+acc = hist.history['accuracy']
+val_acc = hist.history['val_accuracy']
+loss = hist.history['loss']
+val_loss = hist.history['val_loss']
+
+epochs = range(1, len(acc) + 1)
+
+plt.plot(epochs, loss, 'bo', label='Training loss')
+
+plt.plot(epochs, val_loss, 'b', label='Validation loss')
+plt.title('Training and validation loss')
+plt.xlabel('Epochs')
+plt.ylabel('Loss')
+plt.legend()
+
+plt.draw()
+# fig1 = plt.gcf()
+plt.show()
+# fig1.savefig('fig1.png', dpi=100)
+'''
+
+# In[8]:
+
+
+plt.clf()   # 그래프를 초기화합니다
+
+plt.plot(epochs, acc, 'bo', label='Training acc')
+plt.plot(epochs, val_acc, 'b', label='Validation acc')
+plt.title('Training and validation accuracy')
+plt.xlabel('Epochs')
+plt.ylabel('Accuracy')
+plt.legend()
+
+fig2 = plt.gcf()
+
+plt.draw()
+
+
+# In[14]:
+
+
+dat=pd.read_csv('normal_train.csv')
+
+# dat.drop(['Unnamed: 0'], axis=1, inplace=True)
+# print(dat)
+X = dat.to_numpy()
+X = scaler.transform(X)
+xhat = X[0:1]
+res = {
+    "total":len(X),
+    "safe":0,
+    "emergency":0
+}
+for i in range(0,len(X)):
+    yhat = model.predict_classes(X[i:i+1])
+    if yhat == [0]:
+        res["safe"]+=1
+    else :
+        res["emergency"]+=1
+
+
+# In[19]:
+
+
+print(res)
+print("safe: "+str(float(res["safe"])/float(res["total"])*100)+"%")
+
+
+# In[33]:
+
+
+model_json = model.to_json()
+with open("model.json", "w") as json_file : 
+    json_file.write(model_json)
+
+
+# In[46]:
+
+
+model.save("eeg_model2.h5")
+
+
+# In[47]:
+
+
+from sklearn.externals import joblib 
+# 객체를 pickled binary file 형태로 저장한다 
+file_name = 'robust_scaler.pkl' 
+joblib.dump(scaler, file_name) 

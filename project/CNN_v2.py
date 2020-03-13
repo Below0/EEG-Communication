@@ -21,8 +21,8 @@ class ConvoultionalNeuralNetwork:
     self._test1.drop(test1.columns[[0]], axis='columns')
     self._test2.drop(test1.columns[[0]], axis='columns')
 
-    self._test1["label"] = "unsafe"
-    self._test2["label"] = "safe"
+    self._test1["label"] = "safe"
+    self._test2["label"] = "unsafe"
 
     self._X=pd.concat([test1, test2])
 
@@ -33,8 +33,8 @@ class ConvoultionalNeuralNetwork:
         self._y[i] = self._bclass[v]
 
     #X축의 label을 제외한 테스트 데이터 셋
-    del X['label']
-    X=X.to_numpy()
+    del self._X['label']
+    self._X = self._X.to_numpy()
     X.shape
 
     tmp = [[x,y_tmp] for x, y_tmp in zip(X, y)]
