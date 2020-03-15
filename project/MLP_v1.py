@@ -2,6 +2,7 @@ import os
 import sys
 import pickle
 import random
+import requests
 import pandas as pd, numpy as np
 from keras.utils import np_utils
 from keras.models import Sequential
@@ -31,6 +32,7 @@ class MultiLayerPerceptron:
         self._dat = None
         self._xhat = None
         self._yhat = None
+        self._count = 0
         self._loss_and_metrics = None
 
     def _readDataFromFile(self,emergencyFile,normalFile):
@@ -91,6 +93,7 @@ class MultiLayerPerceptron:
             self._model.compile(loss='binary_crossentropy',optimizer='rmsprop',metrics=['accuracy'])
 
     def _extractResult(self,arguList,isTrained=False):
+        URL = 'http://44.233.139.129:8000/'
         #arguList.drop(['Unnamed: 0'],axis=1,inplace=True)
         self._X = arguList[['delta','theta','lowAlpha','highAlpha','lowBeta','highBeta','lowGamma','midGamma','Meditation','Attention']].to_numpy()
         #print('[TEST] self._X : ', self._X)
@@ -104,8 +107,12 @@ class MultiLayerPerceptron:
         #print(self._yhat)
 
         if self._yhat[0] == 1 :
+            self._count += 1
             print("emergency call")
-            sys.exit(-1)
+            if(self._count >= 3):
+                requests.get(URL+'call/C4:64:E3:E8:E6:7B')
+                self._count = 0
+            #sys.exit(-1)
         else:
             print("normal")
             #print(self._yhat)

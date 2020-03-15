@@ -18,7 +18,7 @@ pandasData = ''
 user = 'Unknown'
 normalFile = 'normal.csv'
 emergencyFile = 'scared.csv'
-URL = 'http://44.233.139.129:8000/eeg/'
+URL = 'http://44.233.139.129:8000/'
 isTrain = False
 
 def stringParsing():
@@ -52,6 +52,7 @@ if __name__ == '__main__': # main function
     isTrain = input('The data is trained? : (Y/N)')
     isTrain = str(isTrain)
 
+
     if(isTrain is 'Y' or isTrain is 'y'):
         isTrain = True
     else:
@@ -66,7 +67,8 @@ if __name__ == '__main__': # main function
 
     if(mindwaveDataPointReader.isConnected()):
         data = {'address':'C4:64:E3:E8:E6:7B','name':'테스트'}
-        #response = requests.post(URL,data=data)
+        requests.post(URL+'eeg/',data=data)
+
         try:
             while(True):
                 dataPoint = mindwaveDataPointReader.readNextDataPoint()
