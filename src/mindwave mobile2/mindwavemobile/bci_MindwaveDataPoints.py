@@ -93,7 +93,7 @@ class EEGPowersDataPoint(DataPoint):
          (((1 << 16) - 1) & (threeBytes[1] << 8)) |\
           ((1 << 8) - 1) & threeBytes[2]
         return bigEndianInteger
-        
+
     def __str__(self):
         return """EEG Powers:
                 delta: {self.delta}
