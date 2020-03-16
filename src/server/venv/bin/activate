@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/home/hayoung/PycharmProjects/EGG_Soongsil_project/venv"
+VIRTUAL_ENV="/home/hayoung/PycharmProjects/EEG_SERVER/venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

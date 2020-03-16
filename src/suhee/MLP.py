@@ -1,3 +1,4 @@
+
 #!/usr/bin/env python
 # coding: utf-8
 
@@ -58,15 +59,10 @@ y = [n[1] for n in tmp]
 X = np.asarray(X, dtype=np.float32)
 y = np.asarray(y, dtype=np.float32)
 
-
-# In[9]:
-
-
 x_train, y_train = X[1:test_size], y[1:test_size]
 x_test, y_test = X[test_size:], y[test_size:]
 
 print(x_train.shape, y_train.shape, x_test.shape, y_test.shape)
-
 
 # In[10]:
 
@@ -94,17 +90,9 @@ model.compile(
     metrics=['accuracy']
 )
 
-
-# In[11]:
-
-
 #모델 학습시키기
 hist = model.fit(x_train, y_train, epochs=50,
                  batch_size=32, validation_data=(x_test, y_test))
-
-
-# In[13]:
-
 
 print("LOSS")
 print(hist.history['loss'])
