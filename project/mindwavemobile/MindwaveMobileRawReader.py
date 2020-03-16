@@ -21,22 +21,6 @@ class MindwaveMobileRawReader:
     # Headset address is 'C4:64:E3:E8:E6:7B'
     def connectToMindWaveMobile(self):
 
-        # Choosing a communication device
-        # scanning for target device
-        '''
-        self._nearby = discover_devices()
-
-        for bdaddr in self._nearby:
-            print(lookup_name(bdaddr))
-            if self.target_addr == bdaddr:
-                print('target name : %s'% self.target_name)
-                print('target addr : %s'% self.target_addr)
-                break
-        if bdaddr is not None:
-            print('device found. target address %s'% self.target_addr)
-        else:
-            self._printErrorDiscoveryMessage()
-        '''
         # Connect
         # establishing a connection
 
