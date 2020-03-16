@@ -8,11 +8,10 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn import svm
-from SupportVectorMachine import SupportVectorMachine as svmFunctions
-from MLP_v1 import MultiLayerPerceptron as mplFunctions # MPL
+from bci_MLP import MultiLayerPerceptron as mplFunctions # MPL
 from sklearn.model_selection import train_test_split, GridSearchCV
-from mindwavemobile.MindwaveDataPoints import *
-from mindwavemobile.MindwaveDataPointReader import MindwaveDataPointReader
+from mindwavemobile.bci_MindwaveDataPoints import *
+from mindwavemobile.bci_MindwaveDataPointReader import MindwaveDataPointReader
 
 pandasData = ''
 user = 'Unknown'
@@ -31,10 +30,6 @@ def stringParsing():
     for i in range(0,len(retList)):
         retList[i] = retList[i].strip('ABCDEFGHIJKLMNOPQRSTUVWXYZ\nabcedfghijklmnopqrstuvwxyz ')
     retList = list(filter(None,retList))
-    #now = time.localtime()
-    #time_str = str(now.tm_year) + '.' + str(now.tm_mon) + '.' + str(now.tm_mday) + '.' + str(now.tm_hour) + '.' + str(now.tm_min) + '.' + str(now.tm_sec)
-    #retList.insert(0,time_str)
-    #retList.insert(0,str(time.now()))
     return retList
 
 if __name__ == '__main__': # main function
@@ -49,7 +44,7 @@ if __name__ == '__main__': # main function
     user = input('write an user name : ')
     user = str(user)
 
-    isTrain = input('The data is trained? : (Y/N)')
+    isTrain = input('The data is trained (Y/N) : ')
     isTrain = str(isTrain)
 
 
@@ -67,7 +62,7 @@ if __name__ == '__main__': # main function
 
     if(mindwaveDataPointReader.isConnected()):
         data = {'address':'C4:64:E3:E8:E6:7B','name':'테스트'}
-        requests.post(URL+'eeg/',data=data)
+        #requests.post(URL+'eeg/',data=data)
 
         try:
             while(True):
@@ -87,10 +82,9 @@ if __name__ == '__main__': # main function
                         tempFrame.set_index('delta')
                         tempFrame.loc[0] = pandasList
                         mplTest._extractResult(tempFrame,isTrain)
-                        print(tempFrame)
+                        #print(tempFrame)
                         dataFrame.loc[dataPos] = pandasList
                         dataPos += 1
-                        #print(dataFrame)
 
                     if(poor_num < 200 and dataPoint.__class__ is MeditationDataPoint):
                         tempList.clear()
