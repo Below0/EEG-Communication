@@ -1,4 +1,4 @@
-#!/home/hayoung/PycharmProjects/EGG_Soongsil_project/venv/bin/python
+#!/home/hayoung/PycharmProjects/EEG_SERVER/venv/bin/python3
 from django.core import management
 
 if __name__ == "__main__":
