@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="33e7ab7b-00d5-46dc-8257-07abdb417ac5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../etc/Desktop.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../etc/Desktop/.ipynb_checkpoints/Untitled-checkpoint.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../etc/Desktop/.ipynb_checkpoints/Untitled1-checkpoint.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../etc/Desktop/.ipynb_checkpoints/svm_madiAtten-test1-checkpoint.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../etc/Desktop/1e10.pkl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../etc/Desktop/Desktop.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../etc/Desktop/Result_emergency.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../etc/Desktop/Result_normal.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../etc/Desktop/Untitled.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../etc/Desktop/Untitled1.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../etc/Desktop/emer2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../etc/Desktop/emer3.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../etc/Desktop/emer4.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../etc/Desktop/emergency.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../etc/Desktop/newnor.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../etc/Desktop/normal.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../etc/Desktop/normal2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../etc/Desktop/normal3.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../etc/Desktop/normal4.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../etc/Desktop/normalized_normal.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../etc/Desktop/normalized_scared.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../etc/Desktop/object_01.pkl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../etc/Desktop/scared.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../etc/Desktop/svm_madiAtten-test1.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../etc/Desktop/svm_madiAtten-test1.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../etc/Desktop/temp.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../etc/Desktop/test.pkl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../etc/Desktop/데이터/newnor.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../etc/Desktop/데이터/헤더포함scared - 복사본.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../etc/Desktop/데이터/헤더포함scared.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../etc/Desktop/백업/object_01.pkl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../etc/Desktop/영림_평상시.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../etc/Desktop/영림_호흡곤란.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../etc/Desktop/평상.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../etc/Desktop/호흡곤란.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../project/.ipynb_checkpoints/Untitled-checkpoint.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../project/Untitled.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../project/example/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../project/example/emergency.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../project/example/normal.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../project/untitled" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/app/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/app/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/app/proguard-rules.pro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/app/src/androidTest/java/com/example/eeg_call/ExampleInstrumentedTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/app/src/main/ic_launcher-web.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/app/src/main/java/com/example/eeg_call/MainActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/app/src/main/java/com/example/eeg_call/MyFirebaseInstanceIDService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/app/src/main/java/com/example/eeg_call/MyFirebaseMessagingService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/app/src/main/java/com/example/eeg_call/ServerInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/app/src/main/res/drawable-v24/background.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/app/src/main/res/drawable-v24/call.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/app/src/main/res/drawable-v24/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/app/src/main/res/drawable-v24/token_button.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/app/src/main/res/drawable/ic_launcher_background.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/app/src/main/res/drawable/ic_launcher_foreground.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/app/src/main/res/mipmap-hdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/app/src/main/res/mipmap-hdpi/ic_launcher_round.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/app/src/main/res/mipmap-mdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/app/src/main/res/mipmap-mdpi/ic_launcher_round.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/app/src/main/res/mipmap-xhdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/app/src/main/res/values/colors.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/app/src/main/res/values/ic_launcher_background.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/app/src/main/res/values/styles.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/app/src/test/java/com/example/eeg_call/ExampleUnitTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/gradle.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/settings.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rasp/NeuroPy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rasp/git" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rasp/python-mindwave/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rasp/python-mindwave/LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rasp/python-mindwave/README.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rasp/python-mindwave/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rasp/python-mindwave/baseline.bytes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rasp/python-mindwave/examples/console.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rasp/python-mindwave/examples/console_recorder.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rasp/python-mindwave/examples/example_startup.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rasp/python-mindwave/examples/pygame_background.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rasp/python-mindwave/examples/pygame_viewer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rasp/python-mindwave/mindwave/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rasp/python-mindwave/mindwave/bluetooth_headset.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rasp/python-mindwave/mindwave/parser.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rasp/python-mindwave/mindwave/pyeeg.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rasp/python-mindwave/setup.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rasp/python-mindwave/test/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../suhee/.ipynb_checkpoints/CNN_v2-checkpoint.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../suhee/.ipynb_checkpoints/MLP-checkpoint.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../suhee/MLP.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../suhee/eeg_model.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../suhee/eeg_model2.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../suhee/eeg_model3.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../suhee/emer4.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../suhee/emer_test.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../suhee/fig1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../suhee/h5+scaler.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../suhee/model.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../suhee/model.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../suhee/model2.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../suhee/newemer.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../suhee/newnor.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../suhee/normal4.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../suhee/normal_test.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../suhee/normal_train.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../suhee/robust_scaler.pkl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../suhee/robust_scaler2.pkl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../suhee/scared.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../suhee/suhee (2).zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../suhee/suhee.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../suhee/영림_호흡곤란.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../client/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../suhee/CNN_v2.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../suhee/CNN_v2.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../suhee/MLP.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../suhee/MLP.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../suhee/MLP.py" beforeDir="false" afterPath="$PROJECT_DIR$/../suhee/MLP.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="1YhBcvI0LFJDVwD7EiRxZUpHPBH" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="33e7ab7b-00d5-46dc-8257-07abdb417ac5" name="Default Changelist" comment="" />
+      <created>1583385028333</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1583385028333</updated>
+      <workItem from="1583385035391" duration="4684000" />
+      <workItem from="1583391860746" duration="1541000" />
+      <workItem from="1583472754766" duration="5628000" />
+      <workItem from="1583639270966" duration="11877000" />
+      <workItem from="1583725623083" duration="5141000" />
+      <workItem from="1583734773443" duration="124000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="619" y="182" width="681" height="646" key="find.popup" timestamp="1583388836159">
+      <screen x="0" y="30" width="1920" height="950" />
+    </state>
+    <state x="619" y="182" width="681" height="646" key="find.popup/0.30.1920.950@0.30.1920.950" timestamp="1583388836159" />
+    <state x="415" y="197" width="672" height="550" key="search.everywhere.popup" timestamp="1583726286834">
+      <screen x="0" y="30" width="1280" height="770" />
+    </state>
+    <state x="415" y="197" width="672" height="550" key="search.everywhere.popup/0.30.1280.770@0.30.1280.770" timestamp="1583726286834" />
+    <state x="623" y="236" width="672" height="678" key="search.everywhere.popup/0.30.1920.950@0.30.1920.950" timestamp="1583476633304" />
+  </component>
+</project>
