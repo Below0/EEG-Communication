@@ -1,7 +1,7 @@
 import struct
 import collections
-from .MindwaveMobileRawReader import MindwaveMobileRawReader
-from .MindwavePacketPayloadParser import MindwavePacketPayloadParser
+from .bci_MindwaveMobileRawReader import MindwaveMobileRawReader
+from .bci_MindwavePacketPayloadParser import MindwavePacketPayloadParser
 
 class MindwaveDataPointReader:
 
