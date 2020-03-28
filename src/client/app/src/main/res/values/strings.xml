@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">뇌파 호출기</string>
+    <color name="in_background">#1A1B1D</color>
 </resources>

@@ -5,29 +5,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="@drawable/background"
+    android:background="@color/in_background"
     android:orientation="vertical">
     <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/heartbeat"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/call"
+        android:layout_margin="30dp"
         android:layout_weight="1"
-        android:layout_margin="60dp"
 
-        ></androidx.appcompat.widget.AppCompatImageView>
+        android:src="@drawable/stop"></androidx.appcompat.widget.AppCompatImageView>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:orientation="vertical">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="토큰"
-            android:textColor="@color/dark"
-            android:textSize="25dp"
-            ></TextView>
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -40,12 +32,13 @@
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="60dp"
                     android:hint="아이디를 입력해주세요."
                     android:gravity="center"
                     android:id="@+id/input"
                     android:layout_marginVertical="50dp"
                     android:textColorHint="@color/hint"
-                    android:textColor="@color/dark"></EditText>
+                    android:textColor="@color/white"></EditText>
                 <ImageView
                     android:layout_width="150dp"
                     android:layout_height="80dp"
@@ -63,7 +56,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="Null"
-                android:textColor="@color/dark"
+                android:textColor="@color/white"
                 android:textSize="10dp"
                 android:layout_weight="1"
                 android:id="@+id/token"
