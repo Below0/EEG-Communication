@@ -12,7 +12,7 @@
 ![그림2](https://user-images.githubusercontent.com/53803114/77825504-20818100-714d-11ea-8ee3-756897376b95.png)
 
 ## Developers
-* 14 최지웅
-* 15 이하영
-* 15 최영림
-* 16 김수희
+* 14 최지웅 - tiro25
+* 15 이하영 - Below0
+* 15 최영림 - ChoiYoungRim
+* 16 김수희 - 
